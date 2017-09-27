@@ -19,3 +19,68 @@
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# ============ #
+# for others   #
+# ============ #
+
+*.log #log files, for some plugins
+*.pyc #python bytecode cache, for some plugins.
+sysinfo.txt #Unity3D Generated File On Crash Reports
+
+
+PixelGameFighter/Assets/Graph
+PixelGameFighter/Assets/_Creepy_Cat/
+PixelGameFighter/Assets/Standard Assets/
+*.exr
+*.png
+*.asset
+*.meta
+*.unity
+*.json
+*.exe
+PixelGameFighter/PixelFighter_Data
+*.obj
+*.mtl
+*.vox
+*.blend
+*.blend1
+*.mat
+*.fbx
+*.tga
+*.prefab
+*.txt
