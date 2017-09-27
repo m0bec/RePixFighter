@@ -1,0 +1,81 @@
+@startuml{image html RePixFighter_zyou.png}
+title <size:18>状態遷移図</size>
+
+[*] -->停止
+停止 -> 稼働中 : 電源ON
+state 稼働中{
+    [*] --> タイトル
+    タイトル --> ゲーム開始
+    ゲーム開始 --> タイトル
+    タイトル --> Exit
+    タイトル --> スコア
+    スコア --> タイトル
+
+    Exit --> [*]
+ 
+    ゲーム開始 --> 難易度選択
+    難易度選択 --> ゲーム開始
+    難易度選択 --> ゲーム
+
+    state ゲーム{
+        [*] --> ロード画面
+        ロード画面 --> Playing : ロード終了
+        ロード画面: entry / ステージ＆キャラロード
+
+        Playing -> 一時停止
+        一時停止 -> Playing
+        一時停止 --> タイトル
+        一時停止 : do / Playingの停止
+
+        Playing --> GameOver: 残機0
+        GameOver --> スコア画面
+
+        GameOver: do / Playingの停止
+        GameOver: exit / スコア画面のロード
+        スコア画面 --> タイトル
+        スコア画面: do / 名前の入力
+
+        Playing --> ロード画面 : ステージクリア
+        
+        Playing --> クリア画面: ゲームクリア
+        クリア画面 --> スコア画面
+
+        state Playing{
+            [*] --> ShotKey_OFF
+            ShotKey_OFF --> ShotKey_ON: Spaceキー
+            ShotKey_ON --> ShotKey_OFF: Spaceキー
+            ShotKey_ON: do / 自機ショット発射
+            --
+            [*] --> 移動
+            --
+            [*] --> ボム: if ボム数>0
+            ボム: exit / ボム数-1
+            --
+            [*] --> 自機あたり判定
+            自機あたり判定 --> Get_Item: if Item
+            Get_Item: entry / ポイントかパワーかボムに加算
+            Get_Item --> 自機あたり判定
+            自機あたり判定 --> 破壊: if Bullet or Enemy
+            破壊 --> リスポーン: if 残機>0
+            リスポーン --> 自機あたり判定
+            破壊 --> [*]: if 残機<=0
+            --
+            [*] --> Enemy生成
+            Enemy生成 --> Enemyあたり判定
+            Enemyあたり判定 --> Enemy攻撃: if Enemy_Hp>0
+            Enemyあたり判定 --> Destroy: if Enemy_HP<=0
+            Enemyあたり判定 --> アイテム生成: if Item_Enemy && Enemy_HP<=0
+            アイテム生成 --> Destroy
+            Destroy: entry / スコア加算
+            Enemy攻撃 --> Enemy移動
+            Enemy移動 --> Enemyあたり判定
+            --
+            [*] --> 画面スクロール
+        }
+    }
+}
+
+稼働中 --> 停止 : 電源OFF
+停止 --> [*]
+
+@enduml
