@@ -1,0 +1,61 @@
+@startuml{image html RePixFighter_class.png}
+
+class DataKeeper{
+    int score
+    int player_hp
+    int player_bomb
+    int time
+    int stage
+}
+
+package Player{
+    class Player{
+        void Invincible()
+        void OperationInvalid()
+    }
+
+    class Shot{
+        float damage
+        float GiveDamage()
+    }
+    Player --> Shot
+
+    class Hit{
+
+    }
+    Player -- Hit
+    Hit -- DataKeeper
+
+    class Move{
+        void Operation()
+        void MoveRange()
+    }
+    Player -- Move
+
+    class Bomb{
+        float Invicible_time
+        void Execution()
+    }
+    Player -- Bomb
+    Bomb -- DataKeeper
+
+    class StartMove{
+        void Execution()
+        float invalid_time
+    }
+    Player -- StartMove
+}
+
+package Enemy{
+    class Enemy
+}
+
+class CreateEnemy{
+
+}
+
+class Scroll{
+    
+}
+
+@enduml
