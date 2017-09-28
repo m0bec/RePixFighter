@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BaseTitleMenueSelect : MonoBehaviour {
-	
 	TitleSelectMenueSys title_select_menue_system;
 
 	public Color select_color = new Color(0f / 255f, 0f / 255f, 0f / 255f);
