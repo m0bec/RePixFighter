@@ -21,7 +21,8 @@ package Player{
     Player --> Shot
 
     class Hit{
-
+        void OnTriggerEnter()
+        void DeathAnim()
     }
     Player -- Hit
     Hit -- DataKeeper
@@ -41,21 +42,89 @@ package Player{
 
     class StartMove{
         void Execution()
-        float invalid_time
+        float invalid_control_time
     }
     Player -- StartMove
 }
 
 package Enemy{
-    class Enemy
+    class BaseEnemy{
+        float hp
+        float score
+        int move_type
+        int shot_type
+        int stage
+        int game_status
+        bool stop_flag
+        void OnTriggerEnter()
+        void Death()
+        void Move()
+        void Shot()
+    }
+    BaseEnemy -- DataKeeper
+    BaseEnemy -- EnemyMoveController
+    BaseEnemy -- EnemyBulletController
+
+    class EnemyMoveController{
+        Vector3 EnemyMove(int movr_num_)
+    }
+
+    class EnemyBulletController{
+        void Shot(int shot_type_)
+        void BulletMove(int shot_type_)
+    }
+
+    enum EnemyMoveType{
+
+    }
+
+    class Tank{
+        void ScrollMove()
+    }
+    BaseEnemy <|-- Tank
+
+    class PlaneG{
+
+    }
+    BaseEnemy <|-- PlaneG
+
 }
 
 class CreateEnemy{
-
+    float time
+    void Create()
+    void TimeMeasure()
 }
+CreateEnemy --> BaseEnemy
+CreateEnemy --> ScrollMap
 
-class Scroll{
-    
+
+class ScrollMap{
+    void Scroll()
 }
+ScrollMap --> Tank
+ScrollMap -- DataKeeper
+
+class DisplayWriter{
+    void WriteScore()
+    void WriteBomb()
+    void WriteScore()
+    void WriteHp()
+    void WriteDisp()
+}
+DisplayWriter -- DataKeeper
+
+class MenueDisp{
+    void StopGame()
+    void ExitGame()
+    void Continue()
+}
+MenueDisp -- DataKeeper
+
+class GameStatusController{
+    void GameOver()
+    void GameClear()
+}
+GameStatusController -- DataKeeper
 
 @enduml
