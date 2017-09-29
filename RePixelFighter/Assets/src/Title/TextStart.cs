@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextStart : BaseTitleMenueSelect {
 
@@ -20,7 +21,12 @@ public class TextStart : BaseTitleMenueSelect {
 
 	void Action(){
 		if(Input.GetKeyDown(KeyCode.Return)){
-			
+			StartCoroutine("AsynLoad");
 		}
+	}
+
+	private IEnumerator AsynLoad()
+	{
+    	yield return SceneManager.LoadSceneAsync("SelectDifficult");
 	}
 }
