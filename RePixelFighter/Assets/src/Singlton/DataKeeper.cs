@@ -21,4 +21,10 @@ public class DataKeeper {
 		get{  return difficulty;  }
 		set{  difficulty = value;  }
 	}
+
+    bool scroll_plane_create_fin = false;
+    public bool ScrollPlaneCreateFin{
+        get{  return scroll_plane_create_fin;  }
+        set{  scroll_plane_create_fin = value;  }
+    }
 }
