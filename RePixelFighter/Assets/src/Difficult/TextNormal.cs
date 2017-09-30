@@ -20,7 +20,7 @@ public class TextNormal : BaseDifficultySelect {
 
 	void Action(){
 		if(Input.GetKeyDown(KeyCode.Return)){
-			
+			base.Setdifficulty();
 		}
 	}
 }

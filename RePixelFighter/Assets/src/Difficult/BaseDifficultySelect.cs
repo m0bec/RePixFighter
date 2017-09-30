@@ -35,4 +35,9 @@ public class BaseDifficultySelect : MonoBehaviour {
 	protected bool SelectThis{
 		get{  return select_this;  }
 	}
+
+	public DataKeeper data_keeper = DataKeeper.Instance;
+	protected void Setdifficulty(){
+		data_keeper.Difficulty = state_num;
+	}
 }
