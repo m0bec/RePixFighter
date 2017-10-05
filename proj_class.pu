@@ -130,6 +130,9 @@ class MenueDisp{
     void Continue()
 }
 MenueDisp -- DataKeeper
+Player -- MenueDisp
+MenueDisp -- CreateEnemy
+MenueDisp -- BaseEnemy
 
 class GameStatusController{
     void GameOver()
