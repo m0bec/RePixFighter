@@ -56,12 +56,13 @@ package Player{
 package Enemy{
     class BaseEnemy{
         float hp
-        float score
-        int move_type
-        int shot_type
-        int stage
-        int game_status
-        bool stop_flag
+	    float score
+	    int move_type
+	    int shot_type
+	    float move_speed
+	    Vector3 create_pos
+	    GameObject enemy_move_controller
+	    GameObject enemy_shot_controller
         void OnTriggerEnter()
         void Death()
         void Move()

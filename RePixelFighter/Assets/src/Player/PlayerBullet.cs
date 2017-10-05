@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {
-	public const float DAMAGE = 1.0f;
+	public float DAMAGE = 1.0f;
 	const float MOVE_SPEED = 10.0f;
 
 	float width, height;

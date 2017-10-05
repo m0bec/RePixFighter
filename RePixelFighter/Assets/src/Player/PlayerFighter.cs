@@ -12,8 +12,6 @@ public class PlayerFighter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!stop_game_time.StopFlag){
-
-		}else{
 			Move();
 			Shot();
 		}
