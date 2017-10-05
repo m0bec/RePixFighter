@@ -5,8 +5,14 @@ class DataKeeper{
     int player_hp
     int player_bomb
     int time
-    int stage
+    int stage_num
 }
+
+enum Stage{
+    One
+}
+Stage -- DataKeeper
+Stage -- BaseScrollMap
 
 package Player{
     class Player{
@@ -96,14 +102,18 @@ class CreateEnemy{
     void TimeMeasure()
 }
 CreateEnemy --> BaseEnemy
-CreateEnemy --> ScrollMap
+CreateEnemy --> BaseScrollMap
 
-
-class ScrollMap{
-    void Scroll()
+class ScrollSpeed{
+    One
 }
-ScrollMap --> Tank
-ScrollMap -- DataKeeper
+class BaseScrollMap{
+    void Scroll()
+    void ReMove()
+}
+BaseScrollMap --> Tank
+BaseScrollMap -- DataKeeper
+BaseScrollMap -- ScrollSpeed
 
 class DisplayWriter{
     void WriteScore()

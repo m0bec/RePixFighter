@@ -27,4 +27,10 @@ public class DataKeeper {
         get{  return scroll_plane_create_fin;  }
         set{  scroll_plane_create_fin = value;  }
     }
+
+    int stage_num = (int)Stage.One;
+    public int StageNum{
+        get{  return stage_num;  }
+        set{  stage_num = value;  }
+    }
 }

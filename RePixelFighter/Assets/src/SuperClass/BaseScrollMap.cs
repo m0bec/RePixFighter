@@ -18,6 +18,10 @@ public class BaseScrollMap : MonoBehaviour {
 				this.transform.rotation);
 			data_keeper.ScrollPlaneCreateFin = true;
 		}
+
+		if(data_keeper.StageNum == (int)Stage.One){
+			scroll_speed = ScrollSpeedStruct.One;
+		}
 	}
 	
 	
