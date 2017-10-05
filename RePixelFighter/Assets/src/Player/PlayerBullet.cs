@@ -13,10 +13,12 @@ public class PlayerBullet : MonoBehaviour {
 		height = gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
 	}
 	
-	
+	public StopGameTime stop_game_time = StopGameTime.Instance;
 	// Update is called once per frame
 	void Update () {
-		Move();
+		if(!stop_game_time.StopFlag){
+			Move();
+		}
 	}
 
 	Vector3 next_pos;

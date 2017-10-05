@@ -130,14 +130,19 @@ class MenueDisp{
     void Continue()
 }
 MenueDisp -- DataKeeper
-Player -- MenueDisp
-MenueDisp -- CreateEnemy
-MenueDisp -- BaseEnemy
 
 class GameStatusController{
     void GameOver()
     void GameClear()
 }
 GameStatusController -- DataKeeper
+
+class StopGameTime{
+    bool stop_flag
+}
+StopGameTime -- MenueDisp
+StopGameTime --> BaseEnemy
+StopGameTime --> Player
+StopGameTime --> CreateEnemy
 
 @enduml

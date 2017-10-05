@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenueDisp : MonoBehaviour {
-	bool stop_game_flag;
-	public bool StopGameFlag{
-		get{  return stop_game_flag;  }
-		set{  stop_game_flag = value;  }
-	}
-
+	public StopGameTime stop_game_time = StopGameTime.Instance;
 	// Use this for initialization
 	void Start () {
-		stop_game_flag = false;
+
 	}
 
 	void Update (){
 		if(Input.GetKeyDown(KeyCode.Q)){
-			if(stop_game_flag){
-				stop_game_flag = false;
+			if(!stop_game_time.StopFlag){
+				stop_game_time.StopFlag = true;
 			}else{
-				stop_game_flag = true;
+				stop_game_time.StopFlag = false;
 			}
 		}
 	}

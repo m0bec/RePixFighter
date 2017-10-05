@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFighter : MonoBehaviour {
-	MenueDisp menue_disp;
 	// Use this for initialization
 	void Start () {
-		menue_disp = GameObject.Find("MenueDisp").GetComponent<MenueDisp>();
+
 	}
 	
+	public StopGameTime stop_game_time = StopGameTime.Instance;
 	// Update is called once per frame
 	void Update () {
-		if(menue_disp.StopGameFlag){
+		if(!stop_game_time.StopFlag){
 
 		}else{
 			Move();
