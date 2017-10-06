@@ -27,7 +27,7 @@ public class BaseEnemy : MonoBehaviour {
 		this.gameObject.transform.position = pos;
 	}
 
-	float hp;
+	public float hp;
 	public float HP{
 		get{  return hp;  }
 		set{  hp = value;  }
@@ -61,8 +61,8 @@ public class BaseEnemy : MonoBehaviour {
 		}
 	}
 
-	public void OnTriggerEnter(Collider other){
-		if(other.gameObject.tag == "PlayerBullet"){
+	public void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.CompareTag("PlayerBullet")){
 			hp -= other.gameObject.GetComponent<PlayerBullet>().DAMAGE;
 			Destroy(other.gameObject);
 		}
