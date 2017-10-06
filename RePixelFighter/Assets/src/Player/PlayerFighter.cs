@@ -9,11 +9,17 @@ public class PlayerFighter : MonoBehaviour {
 	}
 	
 	public StopGameTime stop_game_time = StopGameTime.Instance;
+	public DataKeeper data_keeper = DataKeeper.Instance;
 	// Update is called once per frame
 	void Update () {
 		if(!stop_game_time.StopFlag){
-			Move();
-			Shot();
+			if(respone_fin_flag){
+				Invalid();
+				Move();
+				Shot();
+			}else{
+				ResponeAction();
+			}
 		}
 	}
 
@@ -82,5 +88,44 @@ public class PlayerFighter : MonoBehaviour {
 				shot_time += Time.deltaTime;
 			}
 		}
+	}
+
+	public GameObject death_effect;
+	void OnTriggerEnter2D(Collider2D other){
+		if(!invalid_flag){
+			if(other.gameObject.CompareTag("EnemyBullet") || other.gameObject.CompareTag("Enemy")){
+				Instantiate(death_effect, this.gameObject.transform.position, Quaternion.identity);
+				data_keeper.Zanki = data_keeper.Zanki - 1;
+				this.gameObject.transform.position = new Vector3(0.0f, -300.0f, -30.0f);
+				respone_fin_flag = false;
+			}
+		}
+	}
+
+	bool invalid_flag = false;
+	const float INVALID_TIME = 2.0f;
+	float timer = 0.0f;
+	void Invalid(){
+		if(invalid_flag){
+			timer += Time.deltaTime;
+			if(timer > INVALID_TIME){
+				invalid_flag = false;
+			}	
+		}
+	}
+
+	const float RESPONE_FIN_Y = GameDispRange.DOWN_LIMIT + 10.0f;
+	const float RESPONS_MOVE_SPEED = 4.0f;
+	Vector3 str_pos;
+	bool respone_fin_flag = true;
+	void ResponeAction(){
+		invalid_flag = true;
+		str_pos = this.gameObject.transform.position;
+		str_pos.y += RESPONS_MOVE_SPEED;
+		this.gameObject.transform.position = str_pos;
+		if(str_pos.y > RESPONE_FIN_Y){
+			respone_fin_flag = true;
+		}
+
 	}
 }

@@ -10,7 +10,7 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 		enemy_move_controller = GameObject.Find("EnemyMoveController");
 		enemy_shot_controller = GameObject.Find("EnemyShotController");
 	}
-	const float OBJ_HEIGHT = -30.0f;
+	const float OBJ_HEIGHT = -50.0f;
 
 	float timer;
 	int swich_controller = 0;
