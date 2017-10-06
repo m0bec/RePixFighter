@@ -9,11 +9,14 @@ public class BaseEnemyBullet : MonoBehaviour {
 		
 	}
 	
+	public StopGameTime stop_game_time = StopGameTime.Instance;
 	public GameObject enemy_bullet_controller;
 	Vector3 pos;
 	// Update is called once per frame
 	void Update () {
-		Move();
+		if(!stop_game_time.StopFlag){
+			Move();
+		}
 	}
 
 	void Move(){
