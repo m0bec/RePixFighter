@@ -23,14 +23,14 @@ public class BaseEnemyBullet : MonoBehaviour {
 	void Move(){
 		pos = this.gameObject.transform.position;
 		pos = enemy_bullet_controller.GetComponent<EnemyBulletController>().EnemyBulletMove(pos, bullet_type, bullet_speed);
-		if(pos.y > GameDispRange.UP_LIIMT + height){
+		if(pos.y > GameDispRange.UP_LIIMT + height + GameDispRange.MARGIN){
 			Destroy(this.gameObject);
-		}else if(pos.y < GameDispRange.DOWN_LIMIT - height){
+		}else if(pos.y < GameDispRange.DOWN_LIMIT - height - GameDispRange.MARGIN){
 			Destroy(this.gameObject);
 		}
-		if(pos.x > GameDispRange.RIGHT_LIMIT + width){
+		if(pos.x > GameDispRange.RIGHT_LIMIT + width + GameDispRange.MARGIN){
 			Destroy(this.gameObject);
-		}else if(pos.x < GameDispRange.LEFT_LIMIT + height){
+		}else if(pos.x < GameDispRange.LEFT_LIMIT - width - GameDispRange.MARGIN){
 			Destroy(this.gameObject);
 		}
 		this.gameObject.transform.position = pos;

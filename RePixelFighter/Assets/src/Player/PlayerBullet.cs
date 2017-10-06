@@ -25,9 +25,9 @@ public class PlayerBullet : MonoBehaviour {
 	void Move(){
 		next_pos = this.transform.position;
 		next_pos.y += MOVE_SPEED;
-		if(next_pos.y > GameDispRange.UP_LIIMT + height){
+		if(next_pos.y > GameDispRange.UP_LIIMT + height + GameDispRange.MARGIN){
 			Destroy(this.gameObject);
-		}else if(next_pos.y < GameDispRange.DOWN_LIMIT - height){
+		}else if(next_pos.y < GameDispRange.DOWN_LIMIT - height - GameDispRange.MARGIN){
 			Destroy(this.gameObject);
 		}
 		this.transform.position = next_pos;

@@ -24,6 +24,18 @@ public class BaseEnemy : MonoBehaviour {
 	float timer = 0.0f;
 	void Move(){
 		pos = enemy_move_controller.GetComponent<EnemyMoveController>().Move(this.gameObject.transform.position, move_type, move_speed);
+
+		if(pos.y > GameDispRange.UP_LIIMT + this.transform.localScale.y + GameDispRange.MARGIN){
+			Destroy(this.gameObject);
+		}else if(pos.y < GameDispRange.DOWN_LIMIT - this.transform.localScale.y - GameDispRange.MARGIN){
+			Destroy(this.gameObject);
+		}
+		if(pos.x > GameDispRange.RIGHT_LIMIT + this.transform.localScale.x + GameDispRange.MARGIN){
+			Destroy(this.gameObject);
+		}else if(pos.x < GameDispRange.LEFT_LIMIT - this.transform.localScale.x - GameDispRange.MARGIN){
+			Destroy(this.gameObject);
+		}
+
 		this.gameObject.transform.position = pos;
 	}
 
