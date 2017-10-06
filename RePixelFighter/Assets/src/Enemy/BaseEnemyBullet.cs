@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseEnemyBullet : MonoBehaviour {
-
+	float width, height;
 	// Use this for initialization
 	void Start () {
-		
+		width = gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+		height = gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
 	}
 	
 	public StopGameTime stop_game_time = StopGameTime.Instance;
@@ -22,6 +23,16 @@ public class BaseEnemyBullet : MonoBehaviour {
 	void Move(){
 		pos = this.gameObject.transform.position;
 		pos = enemy_bullet_controller.GetComponent<EnemyBulletController>().EnemyBulletMove(pos, bullet_type, bullet_speed);
+		if(pos.y > GameDispRange.UP_LIIMT + height){
+			Destroy(this.gameObject);
+		}else if(pos.y < GameDispRange.DOWN_LIMIT - height){
+			Destroy(this.gameObject);
+		}
+		if(pos.x > GameDispRange.RIGHT_LIMIT + width){
+			Destroy(this.gameObject);
+		}else if(pos.x < GameDispRange.LEFT_LIMIT + height){
+			Destroy(this.gameObject);
+		}
 		this.gameObject.transform.position = pos;
 	}
 
