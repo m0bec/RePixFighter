@@ -22,8 +22,8 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 			switch(swich_controller){
 				case 0:
 					if(timer > 3.0f){
-						base.CreateETFighterBG(new Vector3(100, 600, OBJ_HEIGHT), 10, 5, (int)EnemyMoveNum.straight_down,
-						(int)EnemyShotNum.single_shot, (int)EnemyBulletName.straight_front, 3.0f, 3.0f, enemy_move_controller, enemy_shot_controller);
+						base.CreateETFighterBG(new Vector3(100, 300, OBJ_HEIGHT), 10, 5, (int)EnemyMoveNum.straight_down,
+						(int)EnemyShotNum.single_shot, (int)EnemyBulletName.straight_front, 3.0f, 1.0f, enemy_move_controller, enemy_shot_controller);
 						swich_controller++;
 					}
 					break;

@@ -79,17 +79,24 @@ public class BaseEnemy : MonoBehaviour {
 		enemy_shot_controller = enemy_shot_controller_;
 	}
 
+	public GameObject death_effect;
 	void Death(){
 		if(hp <= 0){
 			data_keeper.Score = score + data_keeper.Score;
+			Instantiate(death_effect, this.gameObject.transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}
 	}
 
 	public void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.CompareTag("PlayerBullet")){
-			hp -= other.gameObject.GetComponent<PlayerBullet>().DAMAGE;
-			Destroy(other.gameObject);
+		if(pos.y < GameDispRange.UP_LIIMT + this.transform.localScale.y
+		&& pos.y > GameDispRange.DOWN_LIMIT - this.transform.localScale.y
+		&& pos.x < GameDispRange.RIGHT_LIMIT + this.transform.localScale.x
+		&& pos.x > GameDispRange.LEFT_LIMIT - this.transform.localScale.x){
+			if(other.gameObject.CompareTag("PlayerBullet")){
+				hp -= other.gameObject.GetComponent<PlayerBullet>().DAMAGE;
+				Destroy(other.gameObject);
+			}
 		}
 	}	
 }
