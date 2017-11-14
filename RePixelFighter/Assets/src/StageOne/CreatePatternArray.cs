@@ -15,6 +15,7 @@ public class CreatePatternArray{
 	public float move_speed_{set; get;}
 	public GameObject enemy_move_controller_{set; get;}
 	public GameObject enemy_shot_controller_{set; get;}
+	
 	public void GoNext(ref int array_num_){
 		array_num_++;
 	}
