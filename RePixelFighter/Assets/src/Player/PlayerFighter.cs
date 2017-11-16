@@ -110,6 +110,7 @@ public class PlayerFighter : MonoBehaviour {
 			timer += Time.deltaTime;
 			if(timer > INVALID_TIME){
 				invalid_flag = false;
+				timer = 0.0f;
 			}	
 		}
 	}
