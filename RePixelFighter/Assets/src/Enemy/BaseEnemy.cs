@@ -18,13 +18,12 @@ public class BaseEnemy : MonoBehaviour {
 	}
 
 	void Shot(){
-		enemy_shot_controller.GetComponent<EnemyShotController>().Shot(this.gameObject.transform.position, shot_type, bullet, bullet_type, bulle_speed, ref timer);
+		enemy_shot_controller.GetComponent<EnemyShotController>().Shot(this.gameObject.transform.position, shot_type, bullet, bullet_type, bullet_colr, bulle_speed, ref timer);
 	}
 
 	float timer = 0.0f;
 	void Move(){
 		pos = enemy_move_controller.GetComponent<EnemyMoveController>().Move(this.gameObject.transform.position, move_type, move_speed);
-
 		if(in_flag){
 			if(pos.y > GameDispRange.UP_LIIMT + this.transform.localScale.y + GameDispRange.MARGIN){
 				Destroy(this.gameObject);
@@ -61,18 +60,20 @@ public class BaseEnemy : MonoBehaviour {
 	int move_type;
 	int shot_type;
 	int bullet_type;
+	int bullet_colr;
 	float bulle_speed;
 	float move_speed;
 	GameObject enemy_move_controller;
 	GameObject enemy_shot_controller;
 
-	public void SetStatus(float hp_, int score_, int move_type_, int shot_type_, int bullet_type_, float bullet_speed_, float move_speed_,
-	GameObject enemy_move_controller_, GameObject enemy_shot_controller_){
+	public void SetStatus(float hp_, int score_, int move_type_, int shot_type_, int bullet_type_, int bullet_colr_, float bullet_speed_, 
+	float move_speed_, GameObject enemy_move_controller_, GameObject enemy_shot_controller_){
 		hp = hp_;
 		score = score_;
 		move_type = move_type_;
 		shot_type = shot_type_;
 		bullet_type = bullet_type_;
+		bullet_colr = bullet_colr_;
 		move_speed = move_speed_;
 		bulle_speed = bullet_speed_;
 		enemy_move_controller = enemy_move_controller_;

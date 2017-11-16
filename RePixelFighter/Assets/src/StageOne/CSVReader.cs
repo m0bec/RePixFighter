@@ -23,8 +23,9 @@ public class CSVReader{
 				pattern_array.move_type_ = int.Parse(str_data[7]);
 				pattern_array.shot_type_ = int.Parse(str_data[8]);
 				pattern_array.bullet_type_ = int.Parse(str_data[9]);
-				pattern_array.bullet_speed_ = float.Parse(str_data[10]);
-				pattern_array.move_speed_ = float.Parse(str_data[11]);
+				pattern_array.bullet_color_ = int.Parse(str_data[10]);
+				pattern_array.bullet_speed_ = float.Parse(str_data[11]);
+				pattern_array.move_speed_ = float.Parse(str_data[12]);
 				pattern_array.enemy_move_controller_ = move_controller_;
 				pattern_array.enemy_shot_controller_ = shot_controller_;
 				csvDatas.Add(pattern_array);
