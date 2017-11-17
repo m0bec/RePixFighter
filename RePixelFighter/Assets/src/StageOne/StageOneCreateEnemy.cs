@@ -37,7 +37,7 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 					 	 stage_one_reader.enemy_data[enemy_array_num].bullet_color_, stage_one_reader.enemy_data[enemy_array_num].bullet_speed_,
 					 	 stage_one_reader.enemy_data[enemy_array_num].move_speed_, stage_one_reader.enemy_data[enemy_array_num].enemy_move_controller_,
 					 	 stage_one_reader.enemy_data[enemy_array_num].enemy_shot_controller_);
-						 stage_one_reader.enemy_data[enemy_array_num].GoNext(ref enemy_array_num);
+						stage_one_reader.enemy_data[enemy_array_num].GoNext(ref enemy_array_num);
 					}
 				break;
 
