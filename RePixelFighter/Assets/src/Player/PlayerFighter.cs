@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFighter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-
+		data_keeper.PlayerPos = this.transform.position;
 	}
 	
 	public StopGameTime stop_game_time = StopGameTime.Instance;
@@ -53,7 +53,7 @@ public class PlayerFighter : MonoBehaviour {
 			now_pos.y = GameDispRange.DOWN_LIMIT;
 		}
 
-		this.transform.position = now_pos;
+		this.transform.position = data_keeper.PlayerPos = now_pos;
 	}
 
 	public GameObject bullet;

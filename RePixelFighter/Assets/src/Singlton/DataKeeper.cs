@@ -21,6 +21,12 @@ public class DataKeeper {
         zanki = ZANKI_DEF_NUM;
     }
 
+    Vector3 player_pos;
+    public Vector3 PlayerPos{
+        set{player_pos = value;}
+        get{return player_pos;}
+    }
+
 	int difficulty;
 	public int Difficulty{
 		get{  return difficulty;  }
