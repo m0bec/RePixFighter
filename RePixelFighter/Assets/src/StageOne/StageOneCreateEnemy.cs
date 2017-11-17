@@ -31,14 +31,14 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 			switch(swich_controller){
 				case (int)StateInStage.Normal:
 					if(timer > stage_one_reader.enemy_data[enemy_array_num].time_){
-					base.CreateETFighterBG(stage_one_reader.enemy_data[enemy_array_num].create_pos_, stage_one_reader.enemy_data[enemy_array_num].hp_,
-				 	stage_one_reader.enemy_data[enemy_array_num].score_, stage_one_reader.enemy_data[enemy_array_num].move_type_,
-				 	 stage_one_reader.enemy_data[enemy_array_num].shot_type_, stage_one_reader.enemy_data[enemy_array_num].bullet_type_,
-					 stage_one_reader.enemy_data[enemy_array_num].bullet_color_, stage_one_reader.enemy_data[enemy_array_num].bullet_speed_,
-					 stage_one_reader.enemy_data[enemy_array_num].move_speed_, stage_one_reader.enemy_data[enemy_array_num].enemy_move_controller_,
-					 stage_one_reader.enemy_data[enemy_array_num].enemy_shot_controller_);
-					stage_one_reader.enemy_data[enemy_array_num].GoNext(ref enemy_array_num);
-				}
+						base.CreateTank(stage_one_reader.enemy_data[enemy_array_num].create_pos_, stage_one_reader.enemy_data[enemy_array_num].hp_,
+				 		 stage_one_reader.enemy_data[enemy_array_num].score_, stage_one_reader.enemy_data[enemy_array_num].move_type_,
+				 	 	 stage_one_reader.enemy_data[enemy_array_num].shot_type_, stage_one_reader.enemy_data[enemy_array_num].bullet_type_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].bullet_color_, stage_one_reader.enemy_data[enemy_array_num].bullet_speed_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].move_speed_, stage_one_reader.enemy_data[enemy_array_num].enemy_move_controller_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].enemy_shot_controller_);
+						 stage_one_reader.enemy_data[enemy_array_num].GoNext(ref enemy_array_num);
+					}
 				break;
 
 				case (int)StateInStage.MiddleBoss:
