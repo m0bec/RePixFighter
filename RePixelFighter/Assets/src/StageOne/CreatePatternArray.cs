@@ -12,6 +12,7 @@ public class CreatePatternArray{
 	public int shot_type_{set; get;}
 	public int bullet_type_{set; get;}
 	public int bullet_color_{set; get;}
+	public int enemy_type_{set; get;}
 	public float bullet_speed_{set; get;}
 	public float move_speed_{set; get;}
 	public GameObject enemy_move_controller_{set; get;}

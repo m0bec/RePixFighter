@@ -10,6 +10,7 @@ public class CSVReader{
 		// csvをロード
 		TextAsset csv = Resources.Load (FileName) as TextAsset;
 		StringReader reader = new StringReader (csv.text);
+		reader.ReadLine ();
 		while (reader.Peek () > -1) {
 				// ','ごとに区切って配列へ格納
 				string line = reader.ReadLine ();
@@ -26,6 +27,7 @@ public class CSVReader{
 				pattern_array.bullet_color_ = int.Parse(str_data[10]);
 				pattern_array.bullet_speed_ = float.Parse(str_data[11]);
 				pattern_array.move_speed_ = float.Parse(str_data[12]);
+				pattern_array.enemy_type_ = int.Parse(str_data[13]);
 				pattern_array.enemy_move_controller_ = move_controller_;
 				pattern_array.enemy_shot_controller_ = shot_controller_;
 				csvDatas.Add(pattern_array);

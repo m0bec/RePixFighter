@@ -1,2 +1,4 @@
-0,3,100,300,-50,10,5,0,0,0,0,3,1
-1,10,100,300,-50,10,5,0,0,0,0,3,1
+type_,time_,x__create_pos_,y_create_pos_,z_create_pos_,hp_,score_,move_type_,shot_type_,bullet_type_,bullet_color_,bullet_speed_,move_speed_,enemy_type_
+0,3,100,300,-50,10,5,0,0,0,0,3,1,0
+0,8,100,300,-50,10,5,0,0,0,0,3,1,1
+1,10,100,300,-50,10,5,0,0,0,0,3,1,0
