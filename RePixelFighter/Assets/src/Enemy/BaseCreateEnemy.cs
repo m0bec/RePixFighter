@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyType{
-	et_fighter_bg, tank_obj
+	et_fighter_bg, tank_obj, ball_obj
 }
 
 public class BaseCreateEnemy : MonoBehaviour {
@@ -21,7 +21,20 @@ public class BaseCreateEnemy : MonoBehaviour {
 				CreateTank(create_pos_, hp_, score_, move_type_, shot_type_, bullet_type_, bullet_color_, bullet_speed_, move_speed_,
 				  enemy_move_controller_, enemy_shot_controller_);
 				break;
+
+			case (int)EnemyType.ball_obj:
+				CreateBallEnemy(create_pos_, hp_, score_, move_type_, shot_type_, bullet_type_, bullet_color_, bullet_speed_, move_speed_,
+				  enemy_move_controller_, enemy_shot_controller_);
+				break;
 		}
+	}
+
+	public GameObject ball_obj;
+	protected void CreateBallEnemy(Vector3 create_pos_, float hp_, int score_, int move_type_, int shot_type_, int bullet_type_, int bullet_color_,
+	 float bullet_speed_, float move_speed_, GameObject enemy_move_controller_, GameObject enemy_shot_controller_){
+		str_obj = Instantiate(ball_obj, create_pos_, Quaternion.Euler(0.0f, -90.0f, 110.0f));
+		str_obj.GetComponent<BallEnemy>().SetStatus(hp_, score_, move_type_, shot_type_, bullet_type_, bullet_speed_, move_speed_,
+	 	enemy_move_controller_, enemy_shot_controller_);
 	}
 	
 	public GameObject et_fighter_bg;
