@@ -14,6 +14,7 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 		enemy_shot_controller = GameObject.Find("EnemyShotController");
 		enemy_array_num = 0;
 		stage_one_reader.CsvRead("StageOne", enemy_move_controller, enemy_shot_controller);
+		middle_enemy_alive = false;
 	}
 	const float OBJ_HEIGHT = -50.0f;
 
@@ -21,6 +22,7 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 	int swich_controller = (int)StateInStage.Normal;
 	public StopGameTime stop_game_time = StopGameTime.Instance;
 	bool read_flag;
+	bool middle_enemy_alive;
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +45,16 @@ public class StageOneCreateEnemy : BaseCreateEnemy {
 				break;
 
 				case (int)StateInStage.MiddleBoss:
+					if(!middle_enemy_alive){
+						base.CreateEnemy(stage_one_reader.enemy_data[enemy_array_num].create_pos_, stage_one_reader.enemy_data[enemy_array_num].hp_,
+				 		 stage_one_reader.enemy_data[enemy_array_num].score_, stage_one_reader.enemy_data[enemy_array_num].move_type_,
+						 stage_one_reader.enemy_data[enemy_array_num].shot_type_, stage_one_reader.enemy_data[enemy_array_num].bullet_type_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].bullet_color_	, stage_one_reader.enemy_data[enemy_array_num].bullet_speed_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].move_speed_, stage_one_reader.enemy_data[enemy_array_num].enemy_type_,
+						 stage_one_reader.enemy_data[enemy_array_num].enemy_move_controller_,
+					 	 stage_one_reader.enemy_data[enemy_array_num].enemy_shot_controller_);
+						middle_enemy_alive = true;
+				}
 				break;
 			}
 			
