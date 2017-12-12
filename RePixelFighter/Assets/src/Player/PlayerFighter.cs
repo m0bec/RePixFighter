@@ -90,13 +90,14 @@ public class PlayerFighter : MonoBehaviour {
 		}
 	}
 
+	const float RETRY_POS_Z = -100.0f; 
 	public GameObject death_effect;
 	void OnTriggerEnter2D(Collider2D other){
 		if(!invalid_flag){
 			if(other.gameObject.CompareTag("EnemyBullet") || other.gameObject.CompareTag("Enemy")){
 				Instantiate(death_effect, this.gameObject.transform.position, Quaternion.identity);
 				data_keeper.Zanki = data_keeper.Zanki - 1;
-				this.gameObject.transform.position = new Vector3(0.0f, -300.0f, -30.0f);
+				this.gameObject.transform.position = new Vector3(0.0f, -300.0f, RETRY_POS_Z);
 				respone_fin_flag = false;
 			}
 		}

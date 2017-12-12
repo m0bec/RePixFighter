@@ -18,7 +18,9 @@ public class BaseEnemy : MonoBehaviour {
 	}
 
 	void Shot(){
-		enemy_shot_controller.GetComponent<EnemyShotController>().Shot(this.gameObject.transform.position, shot_type, bullet, bullet_type, bullet_colr, bulle_speed, ref timer);
+		Vector3 bullet_pos_ = this.gameObject.transform.position;
+		bullet_pos_.z = -110.0f;
+		enemy_shot_controller.GetComponent<EnemyShotController>().Shot(bullet_pos_, shot_type, bullet, bullet_type, bullet_colr, bulle_speed, ref timer);
 	}
 
 	float timer = 0.0f;
